@@ -1,6 +1,9 @@
-/* 
- * your comment header here
- */
+/*********************
+Name: Allison Crenshaw
+Coding 06
+Purpose: Hashmap program using
+ embedded linked list.
+**********************/
 
 #ifndef MAIN_H
 #define MAIN_H
