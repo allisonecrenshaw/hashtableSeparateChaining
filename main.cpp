@@ -15,10 +15,10 @@ int main() {
      * you to "START HERE"
      */
     const int testdatasize = BASE + (rand() % OFFSET + 1);
-    int ids[testdatasize];
-    string strs[testdatasize];
-    
-    char buffer[BUFFERSIZE];
+    int *ids = new int[testdatasize];
+    string *strs = new string[testdatasize];
+
+    char *buffer = new char[BUFFERSIZE];
     for (int i = 0; i < testdatasize; i++) {
         ids[i] = rand() % MAXID + 1;
         for (int j = 0; j < BUFFERSIZE - 1; j++) {
