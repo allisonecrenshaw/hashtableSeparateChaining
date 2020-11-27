@@ -12,6 +12,7 @@ Purpose: Hashmap program using
 *******************************/
 HashTable::HashTable() {
     count = 0;
+    LinkedList hashtable[HASHTABLESIZE];
 }
 
 HashTable::~HashTable() {
