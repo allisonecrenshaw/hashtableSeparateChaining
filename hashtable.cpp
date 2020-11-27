@@ -41,18 +41,27 @@ bool HashTable::insertEntry(int id, string info) {
         loop++;
     }
     if (positive == true && dupe == false) {
+        ok = true;
         cout << "Inserting data..." << endl;
         hashtable[hash(id)]->addNode(id, info);
-    }
-    else {
+    } else {
         cout << "ID " << id << " invalid." << endl;
     }
-
     return ok;
 }
 
-string HashTable::getData(int) {
-    string data = "";
+string HashTable::getData(int id) {
+    Data *newData;
+    bool found = false;
+    int i = 0;
+    string data;
+
+    // utilize getNode to find data
+    while (found == false && i < HASHTABLESIZE) {
+        found = hashtable[i]->getNode(id, newData);
+        i++;
+    }
+    data = newData->data;
     return data;
 }
 
