@@ -25,6 +25,7 @@ public:
     bool deleteNode(int);
     bool getNode(int, Data*);
     void printList(bool=false);
+    void printListAsLine();
     int getCount();
     bool clearList();
     bool exists(int);

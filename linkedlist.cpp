@@ -248,6 +248,20 @@ void LinkedList::printList(bool order) {
     }
 }
 
+void LinkedList::printListAsLine() {
+    Node *current = head;
+    while (current) {
+        if (current == head) {
+            cout << current->data.id;
+        }
+        else {
+            cout << ", " << current->data.id;
+        }
+        current = current->next;
+    }
+    cout << endl;
+}
+
 int LinkedList::getCount() {
     int count = 0;
     Node *current = head;
