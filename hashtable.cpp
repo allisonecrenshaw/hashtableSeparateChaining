@@ -33,7 +33,7 @@ bool HashTable::insertEntry(int id, string info) {
     int loop = 0;
 
     // check for positive and non-duplicate ids
-    cout << "Starting insert entry." << endl;
+    // cout << "Starting insert entry." << endl;
     if (id > 0)
         positive = true;
     while (dupe == false && loop < HASHTABLESIZE) {
@@ -42,10 +42,10 @@ bool HashTable::insertEntry(int id, string info) {
     }
     if (positive == true && dupe == false) {
         ok = true;
-        cout << "Inserting data..." << endl;
+        // cout << "Inserting data..." << endl;
         hashtable[hash(id)]->addNode(id, info);
     } else {
-        cout << "ID " << id << " invalid." << endl;
+        // cout << "ID " << id << " invalid." << endl;
     }
     return ok;
 }
@@ -57,16 +57,23 @@ string HashTable::getData(int id) {
     string data;
 
     // utilize getNode to find data
-    while (found == false && i < HASHTABLESIZE) {
+    while (!found && i < HASHTABLESIZE) {
         found = hashtable[i]->getNode(id, newData);
         i++;
     }
     return newData->data;
 }
 
-bool HashTable::removeEntry(int) {
-    bool ok = false;
-    return ok;
+bool HashTable::removeEntry(int id) {
+    bool found = false;
+    int i = 0;
+
+    while (!found && i < HASHTABLESIZE) {
+        found = hashtable[i]->deleteNode(id);
+        i++;
+    }
+
+    return found;
 }
 
 
