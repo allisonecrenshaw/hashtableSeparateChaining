@@ -66,6 +66,7 @@ int main() {
         table.insertEntry(ids[i], strs[i]);
     }
     table.printTable();
+    cout << "Current count: " << table.getCount() << endl;
 
     // continue using and testing your table, add and remove data,
     // make more test data if you need to.
@@ -93,9 +94,9 @@ int main() {
         cout << endl;
     }
 
-    // testing removeEntry on known present and not present items
-    cout << endl;
+    // testing removeEntry on known present items
     bool success = false;
+    cout << endl;
     cout << "Testing removeEntry w/ known present items..." << endl;
     for (int i = 0; i < shortTest; i++) {
         cout << "Removing ID " << ids[i] << "..." << endl;
@@ -111,7 +112,11 @@ int main() {
 
     // print table to test if correctly removed
     table.printTable();
+    cout << "Current count: " << table.getCount() << endl;
 
+
+    // testing removeEntry on items known NOT to be present
+    cout << endl;
     cout << "Testing removeEntry w/ known NOT present items..." << endl;
     for (int i = 0; i < shortTest; i++) {
         cout << "Removing ID " << fakeIDs[i] << "..." << endl;
@@ -122,10 +127,12 @@ int main() {
         else {
             cout << "ID " << fakeIDs[i] << " could not be removed." << endl;
         }
+        cout << "Current count: " << table.getCount() << endl;
         cout << endl;
     }
     // print table to ensure table remained the same
     table.printTable();
+    cout << "Current count: " << table.getCount() << endl;
 
     // end of program reached
     cout << endl << "fin." << endl;
