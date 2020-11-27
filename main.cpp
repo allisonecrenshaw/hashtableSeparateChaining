@@ -135,6 +135,7 @@ int main() {
     cout << "Current count: " << table.getCount() << endl;
 
     // end of program reached
-    cout << endl << "fin." << endl;
+    cout << endl << "testing complete." << endl;
+    cout << "fin." << endl;
     return 0;
 }
