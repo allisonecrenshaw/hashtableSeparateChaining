@@ -31,7 +31,7 @@ public:
 private:
     int hash(int);
     int count;
-    Data *hashtable[HASHTABLESIZE];
+    LinkedList *hashtable[HASHTABLESIZE];
 };
 
 
