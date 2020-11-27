@@ -78,20 +78,54 @@ int main() {
     cout << endl;
     cout << "Testing getData w/ known present items..." << endl;
     for (int i = 0; i < shortTest; i++) {
-        cout << "ID: " << ids[i] << "\t";
+        cout << "Getting ID: " << ids[i] << "... ";
         cout << "Data: " << table.getData(ids[i]);
         cout << endl;
     }
 
-    // testing getData on data that does not exist
+    // testing getData on data that does not exist in list
     int fakeIDs[] = {-1, -5, 200, 300, 500};
     cout << endl;
     cout << "Testing getData w/ known NOT present items..." << endl;
     for (int i = 0; i < 5; i++) {
-        cout << "ID: " << fakeIDs[i] << "\t";
+        cout << "Getting ID... " << fakeIDs[i] << "... ";
         cout << "Data: " << table.getData(fakeIDs[i]);
         cout << endl;
     }
+
+    // testing removeEntry on known present and not present items
+    cout << endl;
+    bool success = false;
+    cout << "Testing removeEntry w/ known present items..." << endl;
+    for (int i = 0; i < shortTest; i++) {
+        cout << "Removing ID " << ids[i] << "..." << endl;
+        success = table.removeEntry(ids[i]);
+        if (success) {
+            cout << "ID " << ids[i] << " successfully removed." << endl;
+        }
+        else {
+            cout << "ID " << ids[i] << " could not be removed." << endl;
+        }
+        cout << endl;
+    }
+
+    // print table to test if correctly removed
+    table.printTable();
+
+    cout << "Testing removeEntry w/ known NOT present items..." << endl;
+    for (int i = 0; i < shortTest; i++) {
+        cout << "Removing ID " << fakeIDs[i] << "..." << endl;
+        success = table.removeEntry(fakeIDs[i]);
+        if (success) {
+            cout << "ID " << fakeIDs[i] << " successfully removed." << endl;
+        }
+        else {
+            cout << "ID " << fakeIDs[i] << " could not be removed." << endl;
+        }
+        cout << endl;
+    }
+    // print table to ensure table remained the same
+    table.printTable();
 
     // end of program reached
     cout << endl << "fin." << endl;
