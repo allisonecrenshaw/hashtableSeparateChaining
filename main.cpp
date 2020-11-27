@@ -69,9 +69,20 @@ int main() {
 
     // continue using and testing your table, add and remove data,
     // make more test data if you need to.
-    
-    
-    
-    
+
+    // testing getData on known present data
+    int shortTest = testdatasize/2;
+    if (shortTest > 5)
+        shortTest = 5;
+    // starting output
+    cout << endl;
+    cout << "Testing getData w/ known present items..." << endl;
+    for (int i = 0; i < shortTest; i++) {
+        cout << "ID: " << ids[i] << "\t";
+        cout << "Data: " << table.getData(ids[i]);
+        cout << endl;
+    }
+
+    cout << endl << "fin." << endl;
     return 0;
 }
