@@ -8,10 +8,13 @@ Purpose: Hashmap program using
 #ifndef MAIN_H
 #define MAIN_H
 
+#include "hashtable.h"
+
 #include <iostream>     /* cout, endl */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <string>       /* string */
+
 
 #define BUFFERSIZE 8
 #define MAXID 100
