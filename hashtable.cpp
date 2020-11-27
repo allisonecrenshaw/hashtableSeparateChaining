@@ -61,8 +61,7 @@ string HashTable::getData(int id) {
         found = hashtable[i]->getNode(id, newData);
         i++;
     }
-    data = newData->data;
-    return data;
+    return newData->data;
 }
 
 bool HashTable::removeEntry(int) {
