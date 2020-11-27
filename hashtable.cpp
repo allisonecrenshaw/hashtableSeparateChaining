@@ -38,9 +38,14 @@ bool HashTable::insertEntry(int id, string info) {
         positive = true;
     while (dupe == false && loop < HASHTABLESIZE) {
         dupe = hashtable[loop]->exists(id);
+        loop++;
     }
     if (positive == true && dupe == false) {
-        cout << "Data is ok. Will fill in insert code here later.";
+        cout << "Inserting data..." << endl;
+        hashtable[hash(id)]->addNode(id, info);
+    }
+    else {
+        cout << "ID " << id << " invalid." << endl;
     }
 
     return ok;
@@ -68,12 +73,12 @@ void HashTable::printTable() {
     string line = "******************************\n";
     cout << line << "Printing Hash Table: " << endl;
     for (int i = 0; i < HASHTABLESIZE; i++) {
-        cout << i+1 << ": ";
+        cout << i << ": ";
         if (hashtable[i]->getCount() == 0) {
             cout << "Empty" << endl;
         }
         else {
-            cout << hashtable[i] << endl;
+            hashtable[i]->printListAsLine();
         }
     }
     cout << "End of Hash Table." << endl << line;
