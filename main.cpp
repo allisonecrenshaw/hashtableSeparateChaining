@@ -38,6 +38,7 @@ int main() {
     /*
      * Show test data
      */
+    cout << endl;
     cout << "Showing Test Data (" << testdatasize << " entries)..." << endl;
     for (int i = 0; i < testdatasize; i++) {
         cout << ids[i] << " : " << strs[i] << endl;
@@ -51,9 +52,15 @@ int main() {
      */
     
     // create your hash table object here
+    cout << endl;
+    cout << "Creating new table." << endl;
+    HashTable table;
     
     // show it is empty by calling getCount and printTable
-    
+    cout << "Current count: " << table.getCount() << endl;
+    cout << "Calling print table..." << endl;
+    table.printTable();
+
     // try and put ALL the data into the table and show what happens
 
     // continue using and testing your table, add and remove data,
