@@ -44,6 +44,7 @@ bool HashTable::insertEntry(int id, string info) {
         ok = true;
         // cout << "Inserting data..." << endl;
         hashtable[hash(id)]->addNode(id, info);
+        count++;
     } else {
         // cout << "ID " << id << " invalid." << endl;
     }
@@ -70,6 +71,7 @@ bool HashTable::removeEntry(int id) {
 
     while (!found && i < HASHTABLESIZE) {
         found = hashtable[i]->deleteNode(id);
+        if (found) {count--;}
         i++;
     }
 
