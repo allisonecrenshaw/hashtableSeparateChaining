@@ -62,6 +62,10 @@ int main() {
     table.printTable();
 
     // try and put ALL the data into the table and show what happens
+    for (int i = 0; i < testdatasize; i++) {
+        table.insertEntry(ids[i], strs[i]);
+    }
+    table.printTable();
 
     // continue using and testing your table, add and remove data,
     // make more test data if you need to.
