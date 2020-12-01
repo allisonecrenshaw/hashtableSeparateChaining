@@ -62,9 +62,11 @@ int main() {
     table.printTable();
 
     // try and put ALL the data into the table and show what happens
+    cout << "Inserting data into table using for loop." << endl;
     for (int i = 0; i < testdatasize; i++) {
         table.insertEntry(ids[i], strs[i]);
     }
+    cout << "Printing table and calling getCount after insertions." << endl;
     table.printTable();
     cout << "Current count: " << table.getCount() << endl;
 
