@@ -91,7 +91,6 @@ int main() {
     cout << endl;
     cout << "Testing getData w/ known NOT present items..." << endl;
     for (int i = 0; i < 5; i++) {
-        cout << "Iteration " << i << " of for loop..." << endl;
         cout << "Getting ID " << fakeIDs[i] << "... ";
         cout << "Data: " << table.getData(fakeIDs[i]);
         cout << endl;
