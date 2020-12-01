@@ -190,7 +190,10 @@ bool LinkedList::getNode(int id, Data* newData) {
     bool found = false;
     Node *current;
 
+    cout << "Starting getNode." << endl;
+    cout << "Setting current to head." << endl;
     current = head;
+    cout << "Starting while loop to check if id exists in this LL" << endl;
     while (current && !found) {
         if (id == current->data.id) {
             found = true;
@@ -198,6 +201,7 @@ bool LinkedList::getNode(int id, Data* newData) {
             current = current->next;
     }
 
+    cout << "Starting if-else to check if ID was found." << endl;
     if (found) {
         newData->id = current->data.id;
         newData->data = current->data.data;
@@ -205,6 +209,7 @@ bool LinkedList::getNode(int id, Data* newData) {
         newData->id = -1;
         newData->data = "";
     }
+    cout << "Returning found." << endl;
     return found;
 } // end getNode()
 
