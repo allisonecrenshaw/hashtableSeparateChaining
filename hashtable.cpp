@@ -28,41 +28,23 @@ HashTable::~HashTable() {
 *******************************/
 bool HashTable::insertEntry(int id, string info) {
     bool ok = false;
-    bool dupe = false;
-    bool positive = false;
-    int loop = 0;
-
-    // check for positive and non-duplicate ids
-    // cout << "Starting insert entry." << endl;
-    if (id > 0)
-        positive = true;
-    while (dupe == false && loop < HASHTABLESIZE) {
-        dupe = hashtable[loop]->exists(id);
-        loop++;
-    }
-    if (positive == true && dupe == false) {
-        ok = true;
-        // cout << "Inserting data..." << endl;
-        hashtable[hash(id)]->addNode(id, info);
-        count++;
-    } else {
-        // cout << "ID " << id << " invalid." << endl;
-    }
+    int hashNum = hash(id);
+    ok = hashtable[hashNum]->addNode(id, info);
     return ok;
 }
 
 string HashTable::getData(int id) {
-    Data *newData;
-    bool found = false;
-    int i = 0;
-    string data;
-
-    // utilize getNode to find data
-    while (!found && i < HASHTABLESIZE) {
-        found = hashtable[i]->getNode(id, newData);
-        i++;
-    }
-    return newData->data;
+    string dataString = "";
+    Data *newData = new Data;
+    cout << endl;
+    cout << "Hashing..." << endl;
+    int hashNum = hash(id);
+    cout << "Calling getNode." << endl;
+    hashtable[hashNum]->getNode(id, newData);
+    cout << "Assigning data from newData to dataString." << endl;
+    dataString = newData->data;
+    cout << "Returning dataString." << endl;
+    return dataString;
 }
 
 bool HashTable::removeEntry(int id) {
@@ -73,8 +55,7 @@ bool HashTable::removeEntry(int id) {
         found = hashtable[i]->deleteNode(id);
         if (found) {count--;}
         i++;
-    }
-
+    } // end while
     return found;
 }
 
@@ -93,14 +74,11 @@ void HashTable::printTable() {
         cout << i << ": ";
         if (hashtable[i]->getCount() == 0) {
             cout << "Empty" << endl;
-        }
-        else {
+        } else
             hashtable[i]->printListAsLine();
-        }
-    }
+    } // end for loop
     cout << "End of Hash Table." << endl << line;
 }
-
 
 /*******************************
  * private helper functions
