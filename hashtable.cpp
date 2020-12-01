@@ -30,6 +30,7 @@ bool HashTable::insertEntry(int id, string info) {
     bool ok = false;
     int hashNum = hash(id);
     ok = hashtable[hashNum]->addNode(id, info);
+    if (ok) {count++;}
     return ok;
 }
 
@@ -46,13 +47,11 @@ string HashTable::getData(int id) {
 
 bool HashTable::removeEntry(int id) {
     bool found = false;
-    int i = 0;
-
-    while (!found && i < HASHTABLESIZE) {
-        found = hashtable[i]->deleteNode(id);
+    if (id>0) {
+        int hashNum = hash(id);
+        found = hashtable[hashNum]->deleteNode(id);
         if (found) {count--;}
-        i++;
-    } // end while
+    }
     return found;
 }
 
@@ -69,10 +68,7 @@ void HashTable::printTable() {
     cout << line << "Printing Hash Table: " << endl;
     for (int i = 0; i < HASHTABLESIZE; i++) {
         cout << i << ": ";
-        if (hashtable[i]->getCount() == 0) {
-            cout << "Empty" << endl;
-        } else
-            hashtable[i]->printListAsLine();
+        hashtable[i]->printListAsLine();
     } // end for loop
     cout << "End of Hash Table." << endl << line;
 }
