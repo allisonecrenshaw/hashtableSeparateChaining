@@ -85,11 +85,12 @@ int main() {
     }
 
     // testing getData on data that does not exist in list
-    int fakeIDs[] = {-1, -5, 200, 300, 500};
+    int fakeIDs[] = {200, -1, -5, 300, 500};
     cout << endl;
     cout << "Testing getData w/ known NOT present items..." << endl;
     for (int i = 0; i < 5; i++) {
-        cout << "Getting ID... " << fakeIDs[i] << "... ";
+        cout << "Iteration " << i << " of for loop..." << endl;
+        cout << "Getting ID " << fakeIDs[i] << "... ";
         cout << "Data: " << table.getData(fakeIDs[i]);
         cout << endl;
     }
