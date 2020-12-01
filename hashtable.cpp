@@ -35,15 +35,12 @@ bool HashTable::insertEntry(int id, string info) {
 
 string HashTable::getData(int id) {
     string dataString = "";
-    Data *newData = new Data;
-    cout << endl;
-    cout << "Hashing..." << endl;
-    int hashNum = hash(id);
-    cout << "Calling getNode." << endl;
-    hashtable[hashNum]->getNode(id, newData);
-    cout << "Assigning data from newData to dataString." << endl;
-    dataString = newData->data;
-    cout << "Returning dataString." << endl;
+    if (id > 0) {
+        Data *newData = new Data;
+        int hashNum = hash(id);
+        hashtable[hashNum]->getNode(id, newData);
+        dataString = newData->data;
+    }
     return dataString;
 }
 
